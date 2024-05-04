@@ -1,0 +1,10 @@
+<li>
+    {%for i in cars%}
+
+    <p> Name:  {{i.car_name}}</p>
+    <p>Image: <img src="{{ i.image.url }}"></p>
+    <p> Price:  {{i.price}} $</p>
+
+    {%endfor%}
+
+</li>
