@@ -31,7 +31,7 @@ class Car(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     description = models.TextField()
     date = models.DateField(auto_now_add=True)
-    year = models.DateField(default=2024)
+    year = models.DateField()
     type = models.BooleanField(default=False)
     volume = models.FloatField(default=0.0)
     image = models.ImageField(upload_to='img/')

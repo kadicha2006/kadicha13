@@ -1,10 +1,16 @@
-<li>
-    {%for i in cars%}
-
-    <p> Name:  {{i.car_name}}</p>
-    <p>Image: <img src="{{ i.image.url }}"></p>
-    <p> Price:  {{i.price}} $</p>
-
-    {%endfor%}
-
-</li>
+<ul>
+    {% for car in cars %}
+        <li>
+            <p><a href="{% url 'car_detail' car.id %}">{{ car.name_car }}</a></p>
+            <p>Name: {{ car.car_name }}</p>
+            <p>Image: <img src="{{ car.image.url }}"></p>
+            <p>Price: {{ car.price }} $</p>
+            <form action="{% url 'car_delete' car.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+            </form>
+            <button><a href="{% url 'car_update' car.id %}">Update</a></button>
+        </li>
+    {% endfor %}
+</ul>
+<button><a href="{% url 'car_create' %}">Create</a></button>

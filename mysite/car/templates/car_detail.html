@@ -1,0 +1,22 @@
+<ul>
+    <li>
+        <p>Name: {{ cars.name_car }}</p>
+        <p>Category: {{ cars.category }}</p>
+        <p>Price: {{ cars.price }}</p>
+        <p>Description: {{ cars.description }}</p>
+        {% if cars.image %}
+            <p><img src="{{ cars.image.url }}"></p>
+        {% else %}
+            <p>No image</p>
+        {% endif %}
+        <p>Active: {{ cars.active }}</p>
+        <p>Number: {{ cars_number }}</p>
+        <p>Date: {{ cars.created_date }}</p>
+    </li>
+</ul>
+
+
+
+
+<button><a href="{% url 'car_update' cars.pk %}" >Update</a></button>
+<button><a href="{% url 'car_delete' cars.pk %}" >delete</a></button>
